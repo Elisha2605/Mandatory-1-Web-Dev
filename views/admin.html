@@ -1,0 +1,31 @@
+% include("header", title="Admin")
+    <main>
+        % for tweet in tweets:
+            <form action="/admin-delete" method="POST">
+                <ul>
+                    <li>
+                        <div id="twitte-container">
+                            <input name="user_id" type="hidden" value="{{tweet['id']}}">
+                            <div class="profile_img"></div>
+                            <div class="user_name">{{tweet["title"]}}&nbsp;@{{user["firstname"]}}</div>
+                            <div class="time">{{tweet["time"]}} <br> id: {{tweet["id"]}}</div>
+                            <div class="description">{{tweet["description"]}}</div>
+                            <div class="main_img"></div>
+                        </div>
+                        <button style="position: relative; left: 500px;">Delete</button>
+                        <a style="position: relative; left: 500px;" href="/update-tweet">Update</a>
+                    </li>
+                </ul>    
+            </form>
+        % end
+    <a href="/logout">Logout</a>
+    <form action="/admin" method="POST">
+      <label for="">Title</label><br>
+      <input name="title" type="text"><br>
+      <label for="">Description</label><br>
+      <input name="description" type="text"><br>
+      <button>Submit</button>
+    </form>
+            
+    </main>
+% include("footer")

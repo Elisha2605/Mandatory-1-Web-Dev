@@ -1,0 +1,20 @@
+% include("header", title="Home")
+    <main>
+        <h1>Welcom to the Homepage</h1>
+
+        % for tweet in tweets:
+            <ul>
+                <li>{{tweet["user_name"]}}</li>
+                <li>{{tweet["description"]}}</li>
+            </ul>
+        % end
+        <form action="/admin" method="POST">
+            <label for="">User name</label><br>
+            <input name="user_name" type="text"><br>
+            <label for="">Description</label><br>
+            <input name="description" type="text"><br>
+            <button>Submit</button>
+        </form>
+    </main>
+% include("footer")
+   
