@@ -1,4 +1,5 @@
 
+import uuid
 from bottle import post, request, redirect, response
 import data
 import re
@@ -26,7 +27,9 @@ def _():
         if user["email"] == user_email:
             if  user["password"] == user_password:
                 
-                encode_jwt = jwt.encode({"user": user}, "secret", algorithm="HS256")
+                session_id = str(uuid.uuid4())
+
+                encode_jwt = jwt.encode({"first_name": user["firstname"], "last_name": user["lastname"], "session_id": session_id}, "secret", algorithm="HS256")
                 data.SESSIONS.append(encode_jwt)
                 
                 response.set_cookie("jwt", encode_jwt)

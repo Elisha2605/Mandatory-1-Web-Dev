@@ -1,14 +1,14 @@
 % include("header", title="Admin")
 <main>
     <section id="post-edit-form-group">
-        <form action="/admin-update" method="POST">
+        <form action="/admin-create" method="POST">
             <input name="id" type="hidden" value="{{id}}">
             <div class="form-group">
             <label for="title">Title</label>
-            <input name="title" type="text" class="form-control" id="title" placeholder="Title" value="{{title}}">
+            <input name="title" type="text" class="form-control" id="title" placeholder="Title">
             </div>
             <label for="description">description</label>
-            <textarea name="description" class="form-control" id="description" rows="9" placeholder="Write something...">{{description}}</textarea>
+            <textarea name="description" class="form-control" id="description" rows="9" placeholder="Write something..."></textarea>
             </div>
             <button>Submit</button>
         </form>
